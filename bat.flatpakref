@@ -1,0 +1,8 @@
+[Flatpak Ref]
+Title=Unofficial bat builds
+Name=io.atom.Atom
+Branch=master
+Url=https://vrutkovs.github.io/flatpak-bat/repo
+IsRuntime=False
+RuntimeRepo=https://flathub.org/repo/flathub.flatpakrepo
+Comment=Bat is cat(1) with wings

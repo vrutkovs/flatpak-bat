@@ -1,0 +1,28 @@
+app-id: com.github.sharkdp.Bat
+runtime: org.freedesktop.Sdk
+runtime-version: '1.6'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: bat
+separate-locales: false
+finish-args:
+  - --share=ipc
+  - --filesystem=host
+build-options:
+  build-args :
+    - --share=network
+  append-path: "/usr/lib/sdk/rust-stable/bin"
+  env:
+    CARGO_HOME: "/run/build/bat/cargo"
+modules:
+  - name: atom
+    buildsystem: simple
+    build-commands:
+      - cargo build
+      - mkdir -p /app/bin
+      - cp target/debug/bat /app/bin
+    sources:
+      - type: archive
+        url: https://github.com/sharkdp/bat/archive/v0.6.1.tar.gz
+        sha256: 14008c3056217a758883e0b65589fc8ce699f245e9f1c1ff5aad925c090eda37
