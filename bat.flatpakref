@@ -1,6 +1,6 @@
 [Flatpak Ref]
 Title=Unofficial bat builds
-Name=io.atom.Atom
+Name=com.github.sharkdp.Bat
 Branch=master
 Url=https://vrutkovs.github.io/flatpak-bat/repo
 IsRuntime=False
