@@ -7,9 +7,9 @@ prepare-repo:
 install-deps:
 	flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak --user install -y flathub \
-		org.freedesktop.Platform/x86_64/1.6 \
-		org.freedesktop.Sdk/x86_64/1.6 \
-		org.freedesktop.Sdk.Extension.rust-stable/x86_64/1.6
+		org.freedesktop.Platform/x86_64/18.08 \
+		org.freedesktop.Sdk/x86_64/18.08 \
+		org.freedesktop.Sdk.Extension.rust-stable/x86_64/18.08
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \
