@@ -24,5 +24,5 @@ modules:
       - cp target/debug/bat /app/bin
     sources:
       - type: archive
-        url: https://github.com/sharkdp/bat/archive/v0.7.1.tar.gz
-        sha256: 5863895e6ac95f5349da95ff74e196c4b365af3fc3f4a1376cab797df493b7a4
+        url: https://github.com/sharkdp/bat/archive/v0.8.0.tar.gz
+        sha256: 577664399cf24695f51b702350c1a3fe460cd296a6a12ed0938bb937a4b3b00d
