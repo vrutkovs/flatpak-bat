@@ -2,7 +2,7 @@
 Title=Unofficial bat builds
 Name=com.github.sharkdp.Bat
 Branch=master
-Url=https://vrutkovs.github.io/flatpak-bat/repo
+Url=https://minio.vrutkovs.eu/flatpak/bat/repo
 IsRuntime=False
 RuntimeRepo=https://flathub.org/repo/flathub.flatpakrepo
 Comment=Bat is cat(1) with wings

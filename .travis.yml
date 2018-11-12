@@ -22,11 +22,12 @@ before_deploy:
   - cp -rf bat.flatpakref export/
 
 deploy:
-  edge:
-    branch: v1.8.47
-  provider: pages
+  provider: s3
+  access_key_id: $MINIO_ACCESS_KEY
+  secret_access_key: $MINIO_ACCESS_KEY
+  bucket: flatpak
   local_dir: export
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  upload-dir: bat
+  endpoint: https://minio.vrutkovs.eu
   on:
-    branch: master
+    branch: minio
