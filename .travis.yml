@@ -11,7 +11,7 @@ cache:
     - .flatpak-builder
 
 before_script:
-  - git clone -b gh-pages https://github.com/$TRAVIS_REPO_SLUG export/ && cp -rf export/repo . || mkdir export
+  - git clone -b gh-pages https://github.com/vrutkovs/flatpaks export/ && cp -rf export/repo . || mkdir export
 
 script:
   - docker run --privileged -v ${PWD}:/source -i vrutkovs/flatpak:latest make -C source/
@@ -27,6 +27,7 @@ deploy:
   provider: pages
   local_dir: export
   skip_cleanup: true
+  repo: vrutkovs/flatpaks
   github_token: $GITHUB_TOKEN
   on:
     branch: master
