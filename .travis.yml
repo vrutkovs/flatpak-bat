@@ -21,6 +21,9 @@ before_deploy:
   - cp -rf repo/ export/
   - cp -rf bat.flatpakref export/
 
+notifications:                                                                  
+  webhooks: https://hubot.vrutkovs.eu/travis-ci/103761953
+
 deploy:
   edge:
     branch: v1.8.47
