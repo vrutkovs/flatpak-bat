@@ -22,7 +22,7 @@ before_deploy:
   - cp -rf bat.flatpakref export/
 
 notifications:                                                                  
-  webhooks: https://hubot.vrutkovs.eu/travis-ci/103761953
+  webhooks: https://conumser.vrutkovs.eu/travis/iK6tTYUDjs9RIsZO
 
 deploy:
   provider: pages
