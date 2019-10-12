@@ -6,10 +6,12 @@ prepare-repo:
 
 install-deps:
 	flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	flatpak --user remote-add --if-not-exists vrutkovs https://vrutkovs.github.io/flatpaks/repo --no-gpg-verify
 	flatpak --user install -y flathub \
 		org.freedesktop.Platform/x86_64/19.08 \
-		org.freedesktop.Sdk/x86_64/19.08 \
-		org.freedesktop.Sdk.Extension.rust-stable/x86_64/19.08
+		org.freedesktop.Sdk/x86_64/19.08
+	flatpak --user install -y vrutkovs \
+		org.freedesktop.Sdk.Extension.rust-1dot38/x86_64/19.08
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \

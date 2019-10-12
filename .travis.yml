@@ -21,7 +21,7 @@ before_deploy:
   - cp -rf repo/ export/
   - cp -rf bat.flatpakref export/
 
-notifications:                                                                  
+notifications:
   webhooks: https://conumser.vrutkovs.eu/travis/iK6tTYUDjs9RIsZO
 
 deploy:
