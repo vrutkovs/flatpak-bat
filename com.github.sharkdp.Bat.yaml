@@ -16,7 +16,7 @@ build-options:
   env:
     CARGO_HOME: "/run/build/bat/cargo"
 modules:
-  - name: atom
+  - name: bat
     buildsystem: simple
     build-commands:
       - cargo build
