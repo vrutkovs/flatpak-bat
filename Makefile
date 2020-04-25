@@ -11,7 +11,7 @@ install-deps:
 		org.freedesktop.Platform/x86_64/19.08 \
 		org.freedesktop.Sdk/x86_64/19.08
 	flatpak --user install -y vrutkovs \
-		org.freedesktop.Sdk.Extension.rust-1dot38/x86_64/19.08
+		org.freedesktop.Sdk.Extension.rust-1dot43/x86_64/19.08
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \
