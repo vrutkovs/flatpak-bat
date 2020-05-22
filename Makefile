@@ -23,7 +23,7 @@ clean-cache:
 	rm -rf .flatpak-builder/build
 
 update-repo:
-	flatpak build-update-repo --prune --prune-depth=20 --generate-static-deltas repo
+	flatpak build-update-repo --prune --prune-depth=20 repo
 	echo 'gpg-verify-summary=false' >> repo/config
 	rm -rf repo/.lock
 
