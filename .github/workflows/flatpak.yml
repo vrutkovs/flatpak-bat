@@ -1,0 +1,46 @@
+name: Flatpak build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
+      with:
+          persist-credentials: false
+
+    - name: Install flatpak-builder
+      run: |
+        set -e
+        sudo add-apt-repository -y ppa:alexlarsson/flatpak
+        sudo apt update -y
+        sudo apt install -y flatpak-builder
+
+    - name: Fetch existing flatpak source
+      run: |
+        set -e
+        git clone -b gh-pages https://github.com/vrutkovs/flatpaks export/ && cp -rf export/repo .
+
+    - name: Prime ccache
+      uses: actions/cache@v1
+      with:
+        path: .flatpak-builder/ccache
+        key: flatpak-builder-ccache
+
+    - name: Build flatpak
+      shell: bash
+      run: |
+        set -e
+        make
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REPOSITORY_NAME: vrutkovs/flatpaks
+        BRANCH: gh-pages
+        FOLDER: export
+        CLEAN: true
