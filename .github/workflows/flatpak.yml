@@ -28,6 +28,7 @@ jobs:
         key: flatpak-builder-ccache
 
     - name: Build flatpak
+      shell: bash
       run: |
         set -e
         make
