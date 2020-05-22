@@ -1,4 +1,4 @@
-all: prepare-repo install-deps build clean-cache update-repo
+all: prepare-repo install-deps build clean-cache update-repo copy-to-export
 
 prepare-repo:
 	[[ -d repo ]] || ostree init --mode=archive-z2 --repo=repo
@@ -26,3 +26,8 @@ update-repo:
 	flatpak build-update-repo --prune --prune-depth=20 --generate-static-deltas repo
 	echo 'gpg-verify-summary=false' >> repo/config
 	rm -rf repo/.lock
+
+copy-to-export:
+	rm -rf export && mkdir export
+	cp -rf repo/ export/
+	cp -rf bat.flatpakref export/

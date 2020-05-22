@@ -19,7 +19,7 @@ jobs:
     - name: Fetch existing flatpak source
       run: |
         set -e
-        git clone -b gh-pages https://github.com/vrutkovs/flatpaks export/ && cp -rf export/repo . || mkdir export
+        git clone -b gh-pages https://github.com/vrutkovs/flatpaks export/ && cp -rf export/repo .
 
     - name: Prime ccache
       uses: actions/cache@v1
