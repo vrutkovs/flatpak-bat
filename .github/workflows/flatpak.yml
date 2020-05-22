@@ -32,3 +32,11 @@ jobs:
       run: |
         set -e
         make
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REPOSITORY_NAME: vrutkovs/flatpaks
+        BRANCH: gh-pages
+        FOLDER: export
