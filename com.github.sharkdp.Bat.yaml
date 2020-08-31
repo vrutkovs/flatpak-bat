@@ -3,7 +3,7 @@ runtime: org.freedesktop.Sdk
 runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.rust-1dot43
+  - org.freedesktop.Sdk.Extension.rust-1dot46
 command: bat
 separate-locales: false
 finish-args:
@@ -12,7 +12,7 @@ finish-args:
 build-options:
   build-args :
     - --share=network
-  append-path: "/usr/lib/sdk/rust-1dot43/bin"
+  append-path: "/usr/lib/sdk/rust-1dot46/bin"
   env:
     CARGO_HOME: "/run/build/bat/cargo"
 modules:
