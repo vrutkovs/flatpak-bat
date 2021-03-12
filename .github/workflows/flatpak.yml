@@ -1,46 +1,42 @@
-name: Flatpak build
+name: Flatpak
 
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: freedesktopsdk/flatpak:20.08-x86_64
+      options: --privileged --tmpfs /tmp -v /var/tmp -v /root/.local/share/flatpak
 
     steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@v2
-      with:
-          persist-credentials: false
+      - uses: actions/checkout@v2
 
-    - name: Install flatpak-builder
-      run: |
-        set -e
-        sudo add-apt-repository -y ppa:alexlarsson/flatpak
-        sudo apt update -y
-        sudo apt install -y flatpak-builder
+      - name: Prime cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            .flatpak-builder/ccache
+          key: flatpak-builder-${{ github.run_id }}
+          restore-keys: |
+            flatpak-builder-
 
-    - name: Fetch existing flatpak source
-      run: |
-        set -e
-        git clone -b gh-pages https://github.com/vrutkovs/flatpaks export/ && cp -rf export/repo .
+      - name: Build flatpak
+        uses: gasinvein/action-flatpak-build@master
+        id: build_flatpak
+        with:
+          kind: app
+          id: com.github.sharkdp.Bat
+          arch: x86_64
+          branch: stable
+          runtime-repos: |
+            https://flathub.org/repo/flathub.flatpakrepo
+            https://dl.russianfedora.online/repo/russianfedora.flatpakrepo
 
-    - name: Prime ccache
-      uses: actions/cache@v1
-      with:
-        path: .flatpak-builder/ccache
-        key: flatpak-builder-ccache
-
-    - name: Build flatpak
-      shell: bash
-      run: |
-        set -e
-        make
-
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        REPOSITORY_NAME: vrutkovs/flatpaks
-        BRANCH: gh-pages
-        FOLDER: export
-        CLEAN: true
+      - name: Upload flatpak
+        uses: vrutkovs/action-flatpak-upload@main
+        with:
+          build-repo-path: ${{ steps.build_flatpak.outputs.build-repo }}
+          url: https://flatpak.russianfedora.online/repo
+          name: stable
+          token: ${{ secrets.REPO_TOKEN }}
