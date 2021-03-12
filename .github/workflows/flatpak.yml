@@ -29,7 +29,7 @@ jobs:
           id: com.github.sharkdp.Bat
           arch: x86_64
           branch: stable
-          extra-args: '--ccache'
+          extra-args: ''
           runtime-repos: |
             https://flathub.org/repo/flathub.flatpakrepo
             https://dl.russianfedora.online/repo/russianfedora.flatpakrepo
