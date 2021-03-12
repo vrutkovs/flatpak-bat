@@ -22,7 +22,7 @@ jobs:
             flatpak-builder-
 
       - name: Build flatpak
-        uses: gasinvein/action-flatpak-build@master
+        uses: vrutkovs/action-flatpak-build@no-sandbox
         id: build_flatpak
         with:
           kind: app
