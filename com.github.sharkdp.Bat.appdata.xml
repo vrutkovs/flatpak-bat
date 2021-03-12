@@ -2,11 +2,12 @@
 <component type="console-application">
   <id>com.github.sharkdp.Bat</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <name>A cat clone with syntax highlighting and Git integration. </name>
-  <summary>A cat clone with syntax highlighting and Git integration. </summary>
-  <description>A cat clone with syntax highlighting and Git integration. </description>
+  <name>Bat</name>
+  <summary>A cat clone with syntax highlighting and Git integration.</summary>
+  <description>
+    <p>A cat clone with syntax highlighting and Git integration.</p>
+  </description>
   <project_license>Apache-2.0 AND MIT</project_license>
   <url type="homepage">https://github.com/sharkdp/bat/</url>
-  <translation></translation>
   <update_contact>vadim@vrutkovs.eu</update_contact>
 </component>
