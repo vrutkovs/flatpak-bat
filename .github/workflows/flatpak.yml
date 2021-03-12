@@ -22,13 +22,14 @@ jobs:
             flatpak-builder-
 
       - name: Build flatpak
-        uses: vrutkovs/action-flatpak-build@no-sandbox
+        uses: gasinvein/action-flatpak-build@master
         id: build_flatpak
         with:
           kind: app
           id: com.github.sharkdp.Bat
           arch: x86_64
           branch: stable
+          extra-args: '--ccache'
           runtime-repos: |
             https://flathub.org/repo/flathub.flatpakrepo
             https://dl.russianfedora.online/repo/russianfedora.flatpakrepo
